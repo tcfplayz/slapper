@@ -1,4 +1,3 @@
-import { events } from 'bdsx/event';
 import { generateUniqueID, spawnEntity } from './mobspawning';
 import { serverInstance } from 'bdsx/bds/server';
 import { Vec3 } from 'bdsx/bds/blockpos';
