@@ -13,12 +13,13 @@ class SlapperBase extends Actor {
         }
 }
 
-class NoAIMob extends SlapperBase {
-        create(type: ActorType) {
+export class NoAIMob extends SlapperBase {
+        create(type: ActorType): Actor {
                 var entity = SlapperBase.create(type);
                 var pos = entity.getPosition();
                 entity.addTag("noai");
                 savedPos[entity.getUniqueIdPointer().getBin64()] = pos;
                 writeJSON("../scriptData/pos.json", savedPos);
+                return entity;
         }
 }
