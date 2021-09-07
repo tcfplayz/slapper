@@ -1,6 +1,6 @@
 import { events } from 'bdsx/event';
-import { actorList } from './recordentity';
-import { parseJSON } from './util';
+import { actorList } from './entityrecorder';
+import { parseJSON } from '@bdsx/ckclib/json';
 // set interval
 
 var interval: NodeJS.Timeout;
