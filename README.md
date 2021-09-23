@@ -1,6 +1,6 @@
 # slapper
 Rewriting slapper, in development.
 
-/slapper <<name>>
-  
-Spawns a player with a custom name.
+/slappera or /slapperb
+
+Spawn in a player entity. (Supposed to)
