@@ -1,16 +1,22 @@
-import { CxxString } from 'bdsx/nativetype';
-import { CommandPermissionLevel } from 'bdsx/bds/command';
+import { serverInstance } from 'bdsx/bds/server';
+import { Player } from 'bdsx/bds/player';
 import { events } from "bdsx/event";
-import { command } from 'bdsx/command';
-import { floatingTextTest } from './floatingtext';
+import { command } from 'bdsx/command'
+import { addNewPlayer, addNewPlayerSecondWay } from './proc';
+import { NetworkIdentifier, ServerNetworkHandler } from 'bdsx/bds/networkidentifier';
+import { ConnectionRequest } from 'bdsx/bds/connreq';
 
 events.serverOpen.on(() => {
-        command.register("floatingtext", "Floating text", CommandPermissionLevel.Operator).overload((p, o) => {
-                var e = o.getEntity();
-                if (e?.isPlayer()) {
-                        floatingTextTest(p.text, e.getPosition().x, e.getPosition().y, e.getPosition().z);
-                }
-        }, {
-               text: CxxString
-        });
+        command.register('slappera', 'Slapper Test A').overload((p, o) => {
+                var test = addNewPlayer(new ServerNetworkHandler(), new NetworkIdentifier(), new ConnectionRequest());
+                var plr = o.getEntity() as Player;
+                test.teleport(plr.getPosition());
+        }, {});
+
+        command.register('slapperb', 'Slapper Test B').overload((p, o) => {
+                var plr = o.getEntity() as Player;
+                var testplr = new Player();
+                addNewPlayerSecondWay(serverInstance.minecraft.getLevel(), testplr);
+                testplr.teleport(plr.getPosition());
+        }, {});
 });
