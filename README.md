@@ -1,6 +1,6 @@
 # slapper
 Rewriting slapper, in development.
 
-/slapper <name>
+/slapper <<name>>
   
 Spawns a player with a custom name.
