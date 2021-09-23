@@ -1,6 +1,5 @@
 # slapper
-Slapper, WIP
+Rewriting slapper, in development.
 
-# floatingtext system
-/floatingtext {text}
-the floating text is a armor stand.
+/slapper <name>
+Spanws a player with a custom name.
