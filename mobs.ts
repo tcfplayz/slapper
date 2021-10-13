@@ -9,7 +9,7 @@ var savedPos = parseJSON("../scriptData/pos.json");
 
 class SlapperBase extends Actor {
         static create(type: ActorType): Actor {
-                return spawnEntity(serverInstance.minecraft.getLevel().players.get(0).getRegion(), Vec3.create(100, 100, 100), ActorDefinitionIdentifier.create(type), generateUniqueID(serverInstance.minecraft.getLevel()), new Actor());
+                return Actor.summonAt(serverInstance.minecraft.getLevel().players.get(0).getRegion(), Vec3.create(100, 100, 100), ActorDefinitionIdentifier.create(type), generateUniqueID(serverInstance.minecraft.getLevel()), new Actor());
         }
 }
 
