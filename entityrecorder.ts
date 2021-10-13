@@ -10,3 +10,10 @@ events.packetBefore(MinecraftPacketIds.AddActor).on((p, netId) => {
                 actorList.push(actor);
         }
 });
+
+events.packetBefore(MinecraftPacketIds.RemoveActor).on((p, netId) => {
+        var actor = netId.getActor();
+        if (actor != null) {
+                actorList.splice(actorList.findIndex(actor));
+        }
+});
